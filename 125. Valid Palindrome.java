@@ -16,6 +16,7 @@ Explanation: "raceacar" is not a palindrome.
  */
 
 class Solution {
+    // Check if it is lowercase or uppercase
     public boolean isAlpha(char a) {
         if (a < 123 && a > 96) {
             return true;
@@ -23,6 +24,8 @@ class Solution {
         return false;
     }
 
+    // checks if both the characters are same or not, even if they are of different
+    // cases
     public boolean myFunc(char a, char b) {
         if ((Character.isDigit(a) && Character.isDigit(b))) {
             if (a == b) {
@@ -44,6 +47,7 @@ class Solution {
         return false;
     }
 
+    // Checks if we shall consider this an element or not
     public boolean isOk(char a) {
         if ((a <= 'z' && a >= 'a') || (a <= 'Z' && a >= 'A') || (Character.isDigit(a))) {
             return true;
@@ -51,6 +55,7 @@ class Solution {
         return false;
     }
 
+    // Checks if the string is palindrome or not
     public boolean isPalindrome(String s) {
         int len = s.length();
         int i = 0, j = len - 1;
