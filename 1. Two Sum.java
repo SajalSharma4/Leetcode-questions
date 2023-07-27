@@ -15,16 +15,36 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int n = nums.length;
-        int[] ans = new int[2];
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] == target) {
-                    ans[0] = i;
-                    ans[1] = j;
-                }
+        int n=nums.length;
+        int[] ans=new int[2];
+        int i=0,j=n-1;
+        int[] a=nums.clone();
+        Arrays.sort(a);
+        while(i<=j){
+            int sum=a[i]+a[j];
+            if(sum==target){
+                ans[0]=a[i];
+                ans[1]=a[j];
+                break;
+            }else if(sum>target){
+                j--;
+            }else{
+                i++;
             }
         }
-        return ans;
+        System.out.println(ans[0]+" "+ans[1]);
+        for(i=0;i<n;i++){
+            if(nums[i]==ans[0]){
+                ans[0]=i;
+                break;
+            }
+        }
+        for(i=0;i<n;i++){
+            if(nums[i]==ans[1] && i!=ans[0]){
+                ans[1]=i;
+                break;
+            }
+        }
+        return ans;      
     }
 }
